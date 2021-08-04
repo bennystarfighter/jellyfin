@@ -75,7 +75,7 @@ ENV LANGUAGE en_US:en
 
 EXPOSE 8096
 VOLUME /cache /config /media
-ENTRYPOINT ["./jellyfin/jellyfin", \
-    "--datadir", "/config", \
-    "--cachedir", "/cache", \
-    "--ffmpeg", "/usr/lib/jellyfin-ffmpeg/ffmpeg"]
+ENTRYPOINT trickle -d $DSPEED -u $USPEED ./jellyfin/jellyfin \
+    --datadir /config \
+    --cachedir /cache \
+    --ffmpeg" /usr/lib/jellyfin-ffmpeg/ffmpeg
